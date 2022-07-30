@@ -8,16 +8,16 @@ public class RoomBehaviour : MonoBehaviour
     public GameObject[] doors;
 
     //test array 
-    public bool[] testStatus;
+    //public bool[] testStatus;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        UpdateRoom(testStatus);
-    }
+    //void Start()
+    //{
+    //    UpdateRoom(testStatus);
+    //}
 
     // status represents all 4 directions of a room 
-    void UpdateRoom(bool[] status)
+    public void UpdateRoom(bool[] status)
     {
         for (int i = 0; i<status.Length; i++)
         {
