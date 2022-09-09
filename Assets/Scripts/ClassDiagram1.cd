@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DungeonGenerator">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DungeonGenerator.Cell">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\DungeonGenerator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DungeonGenerator.Rule">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\DungeonGenerator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAACAACAAAAAAAIIAAAAAAAAABAEAIAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\DungeonGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

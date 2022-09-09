@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 20, z: -20}
+  m_LocalPosition: {x: 0, y: 26, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,9 +335,18 @@ MonoBehaviour:
   rooms:
   - room: {fileID: 2957204848558823040, guid: e4e768a640a080943ab21039d908cf20, type: 3}
     minPosition: {x: 0, y: 0}
+    maxPosition: {x: 2, y: 2}
+    obligatory: 0
+  - room: {fileID: 2957204848558823040, guid: 097419559804ccb4890b63bcb9c7c9c9, type: 3}
+    minPosition: {x: 0, y: 0}
     maxPosition: {x: 0, y: 0}
+    obligatory: 1
+  - room: {fileID: 2957204848558823040, guid: dc63c1937c1846049b280cc0bd8dc408, type: 3}
+    minPosition: {x: 2, y: 2}
+    maxPosition: {x: 2, y: 2}
     obligatory: 0
   offset: {x: 6, y: 6}
+  useWholeGrid: 0
 --- !u!4 &1654055891
 Transform:
   m_ObjectHideFlags: 0
