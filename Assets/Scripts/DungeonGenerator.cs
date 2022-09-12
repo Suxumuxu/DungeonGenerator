@@ -44,6 +44,7 @@ public class DungeonGenerator : MonoBehaviour
 
     List<Cell> board = new List<Cell>();
 
+
     List<bool> visitedChecks = new List<bool>();
 
     // Start is called before the first frame update
@@ -121,10 +122,12 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
 
-        for (int p = 0; p < visitedChecks.Count; p++)
-        {
-            Debug.Log(visitedChecks[p]);
-        }
+        //for (int p = 0; p < visitedChecks.Count; p++)
+        //{
+        //    Debug.Log(visitedChecks[p]);
+        //}
+
+        //Debug.Log(countBools(visitedChecks,false));
 
         //Debug.Log(board.Count);
 
@@ -158,7 +161,8 @@ public class DungeonGenerator : MonoBehaviour
             
             //if current cell is pointing at the last Cell of our board
             //Break!
-            if (currentCell == board.Count-useWholeGridCheck || 9 == board.Count)
+            if (currentCell == board.Count-useWholeGridCheck)
+
             {
                 break;
             }
@@ -169,7 +173,6 @@ public class DungeonGenerator : MonoBehaviour
 
 
             //Debug.Log("i:" + currentCell + "n:" + neighbors.Count) ;
-
 
 
             //if no neighbors are returned
@@ -239,17 +242,31 @@ public class DungeonGenerator : MonoBehaviour
 
             }
 
+            visitedChecks[currentCell] = true;
+
+            Debug.Log(countBools(visitedChecks,true));
+
         }
 
 
-        
-        //foreach (var item in path)
-          //  Debug.Log(item); //prints 4,3,2,1, 
-
         //for (int p = 0; p<wholePath.Count;p++)
         //{
-        //    Debug.Log(wholePath[p]);
+        //Debug.Log(wholePath[p]);
         //}
+
+        //Debug.Log(k);
+
+        string str = "";
+
+        for (int p = 0; p< visitedChecks.Count;p++)
+        {
+            str += visitedChecks[p] + ",";
+            //Debug.Log(visitedChecks[p]);
+        }
+
+        Debug.Log(str);
+
+
 
 
 
@@ -287,5 +304,18 @@ public class DungeonGenerator : MonoBehaviour
         return neighbors;
     }
 
+    public static int countBools(List<bool> array, bool flag)
+    {
+        int value = 0;
+
+        for (int i = 0; i < array.Count; i++)
+        {
+            if (array[i] == flag) 
+                
+                value++;
+        }
+
+        return value;
+    }
 
 }
