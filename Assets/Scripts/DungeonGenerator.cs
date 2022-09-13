@@ -118,18 +118,9 @@ public class DungeonGenerator : MonoBehaviour
             for (int j = 0; j < size.y; j++)
             {
                 board.Add(new Cell());
-                visitedChecks.Add(false);
             }
         }
 
-        //for (int p = 0; p < visitedChecks.Count; p++)
-        //{
-        //    Debug.Log(visitedChecks[p]);
-        //}
-
-        //Debug.Log(countBools(visitedChecks,false));
-
-        //Debug.Log(board.Count);
 
         int currentCell = startPos;
 
@@ -140,6 +131,10 @@ public class DungeonGenerator : MonoBehaviour
 
         int k = 0;
 
+        string wholePathStr = "", str = "";
+
+  
+
         while (k < 150)
         {
             k++;
@@ -147,6 +142,7 @@ public class DungeonGenerator : MonoBehaviour
             //mark current cell object as visited 
             board[currentCell].visited = true;
 
+            //keep track of all the cells visited until we created our path
             wholePath.Add(currentCell);
 
             //if useWholeGrid is checked 
@@ -161,7 +157,7 @@ public class DungeonGenerator : MonoBehaviour
             
             //if current cell is pointing at the last Cell of our board
             //Break!
-            if (currentCell == board.Count-useWholeGridCheck)
+            if (currentCell == board.Count-useWholeGridCheck || countBools(board, true) == board.Count)
 
             {
                 break;
@@ -169,11 +165,8 @@ public class DungeonGenerator : MonoBehaviour
 
             //Define a list called neighbors that contains the number of neighboring cells available
             //Check the cell's neighbors
+            //Increment currenctCell index by 1
             List<int> neighbors = CheckNeighbors(currentCell);
-
-
-            //Debug.Log("i:" + currentCell + "n:" + neighbors.Count) ;
-
 
             //if no neighbors are returned
             if (neighbors.Count == 0)
@@ -242,29 +235,24 @@ public class DungeonGenerator : MonoBehaviour
 
             }
 
-            visitedChecks[currentCell] = true;
-
-            Debug.Log(countBools(visitedChecks,true));
 
         }
 
 
-        //for (int p = 0; p<wholePath.Count;p++)
-        //{
-        //Debug.Log(wholePath[p]);
-        //}
+        for (int p = 0; p<wholePath.Count;p++)
+        {
+            wholePathStr += wholePath[p] + ",";
+        }
+        
+        Debug.Log(wholePathStr);
 
-        //Debug.Log(k);
 
-        string str = "";
+
 
         for (int p = 0; p< visitedChecks.Count;p++)
         {
             str += visitedChecks[p] + ",";
-            //Debug.Log(visitedChecks[p]);
         }
-
-        Debug.Log(str);
 
 
 
@@ -304,13 +292,13 @@ public class DungeonGenerator : MonoBehaviour
         return neighbors;
     }
 
-    public static int countBools(List<bool> array, bool flag)
+    public static int countBools(List<Cell> array, bool flag)
     {
         int value = 0;
 
         for (int i = 0; i < array.Count; i++)
         {
-            if (array[i] == flag) 
+            if (array[i].visited == flag) 
                 
                 value++;
         }
